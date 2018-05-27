@@ -23,7 +23,7 @@ public class Routes {
         Stalker stalker=new Gson().fromJson(req.body(),Stalker.class);
 
         System.out.println(stalker);
-
+        dbController.addStalker(stalker);
         return new Gson().toJson("SUCCESS");
     };
 }
