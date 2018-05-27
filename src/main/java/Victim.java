@@ -8,7 +8,8 @@ public class Victim extends User {
     Inet4Address serverIp;
     String cordinates;
 
-    public Victim(int stalkerId, Date lastUpdate, Inet4Address serverIp, String cordinates) {
+    public Victim(String name,int id,int stalkerId, Date lastUpdate, Inet4Address serverIp, String cordinates) {
+        super(name,id);
         this.stalkerId = stalkerId;
         this.lastUpdate = lastUpdate;
         this.serverIp = serverIp;

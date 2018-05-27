@@ -2,14 +2,21 @@ import java.util.Date;
 
 public class Stalker extends User {
     private String password;
-    private String emial;
-    Date dataOjJoining;
-    Date lastOnline;
+    private String email;
+    String dataOfJoining;
+    String lastOnline;
 
-    public Stalker(String password, String emial, Date dataOjJoining, Date lastOnline) {
+    public Stalker(String username,int id,String password, String email, String dataOfJoining, String lastOnline) {
+
+        super(username,id);
         this.password = password;
-        this.emial = emial;
-        this.dataOjJoining = dataOjJoining;
+        this.email = email;
+        this.dataOfJoining = dataOfJoining;
         this.lastOnline = lastOnline;
+    }
+
+    @Override
+    public String toString() {
+        return password+" "+email;
     }
 }

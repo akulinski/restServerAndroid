@@ -14,10 +14,11 @@ public class DbController {
 
     DbController()
     {
+        dataSource=new MysqlDataSource();
         dataSource.setUser(Keys.user);
         dataSource.setPassword(Keys.password);
         dataSource.setDatabaseName(Keys.databaseName);
-        dataSource.setServerName("35.193.226.100");
+        dataSource.setServerName(Keys.name);
 
         try {
             conn=dataSource.getConnection();

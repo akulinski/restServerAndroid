@@ -12,7 +12,7 @@ public class Main {
         Routes routes=new Routes(db);
 
         get("/test",routes.testRoute);
-
+        post("/addStalker",routes.addStalker);
     }
 
 }

@@ -15,4 +15,15 @@ public class Routes {
     {
         return new Gson().toJson("SUCCESS:TRUE");
     };
+
+    public Route addStalker=(Request req,Response res)->
+    {
+        res.type("application/json");
+
+        Stalker stalker=new Gson().fromJson(req.body(),Stalker.class);
+
+        System.out.println(stalker);
+
+        return new Gson().toJson("SUCCESS");
+    };
 }
