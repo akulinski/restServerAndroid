@@ -3,12 +3,32 @@ import java.util.Date;
 
 public class Victim extends User {
 
-    int stalkerId;
-    Date lastUpdate;
-    Inet4Address serverIp;
-    String cordinates;
+    public int getStalkerId() {
+        return stalkerId;
+    }
 
-    public Victim(String name,int id,int stalkerId, Date lastUpdate, Inet4Address serverIp, String cordinates) {
+    public String getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public String getServerIp() {
+        return serverIp;
+    }
+
+    public String getCordinates() {
+        return cordinates;
+    }
+
+    private int stalkerId;
+    private String lastUpdate;
+    private String serverIp;
+    private String cordinates;
+
+    public Victim()
+    {
+
+    }
+    public Victim(String name,int id,int stalkerId, String lastUpdate, String serverIp, String cordinates) {
         super(name,id);
         this.stalkerId = stalkerId;
         this.lastUpdate = lastUpdate;

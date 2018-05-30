@@ -16,4 +16,9 @@ public abstract class User {
         name=name;
     }
 
+    User()
+    {
+
+    }
+
 }
