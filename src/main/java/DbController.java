@@ -1,36 +1,71 @@
 import com.google.gson.Gson;
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
+import java.io.IOException;
 import java.sql.*;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Properties;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+
 
 public class DbController {
 
     private java.sql.Connection conn;
-    private Statement stmt = null;
     private PreparedStatement preparedStatement=null;
-    MysqlDataSource dataSource;
+    private final Logger logger = Logger.getLogger(DbController.class.getName());
+    private FileHandler fileHandler=null;
 
-    DbController()
-    {
-        dataSource=new MysqlDataSource();
-        dataSource.setUser(Keys.user);
-        dataSource.setPassword(Keys.password);
-        dataSource.setDatabaseName(Keys.databaseName);
-        dataSource.setServerName(Keys.name);
+    DbController() {
+
+        setUpLogger();
 
         try {
-            conn=dataSource.getConnection();
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.getCause();
+        }
+        String url = String.format("jdbc:mysql://%s/%s?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", Keys.name, Keys.databaseName);
+
+        // Set connection properties.
+        Properties properties = new Properties();
+        properties.setProperty("user", Keys.user);
+        properties.setProperty("password", Keys.password);
+        properties.setProperty("useSSL", "true");
+        properties.setProperty("verifyServerCertificate", "true");
+        properties.setProperty("requireSSL", "false");
+        properties.setProperty("autoReconnect","true");
+        try {
+            conn = DriverManager.getConnection(url, properties);
+            logger.log(Level.INFO,"Connected to DB");
 
         } catch (SQLException e) {
+
+            logger.log(Level.SEVERE,"SQL exception Message: "+e.getMessage()+" SQLState  "+e.getSQLState()+" Error code: "+e.getErrorCode());
             e.printStackTrace();
         }
+
     }
 
+    private void setUpLogger()
+    {
+        try {
+            fileHandler=new FileHandler("DB.log");
+            logger.addHandler(fileHandler);
+
+            SimpleFormatter formatter = new SimpleFormatter();
+
+            fileHandler.setFormatter(formatter);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     boolean addStalker(Stalker stalker)
     {
@@ -48,10 +83,16 @@ public class DbController {
             preparedStatement.setDate(5,sqlDate);
             preparedStatement.setDate(6,sqlDate);
             preparedStatement.executeUpdate();
+
+            logger.log(Level.INFO,"Added user to db "+stalker.toString());
             return true;
         } catch (SQLException e) {
+
+            logger.log(Level.SEVERE,"SQL exception Message: "+e.getMessage()+" SQLState  "+e.getSQLState()+" Error code: "+e.getErrorCode());
             e.printStackTrace();
         }catch (ParseException e) {
+
+            logger.log(Level.SEVERE,"Parse exception Message: "+e.getMessage());
             e.printStackTrace();
         }
         return false;
@@ -93,9 +134,12 @@ public class DbController {
             preparedStatement.setString(1,params);
             preparedStatement.setInt(2,id.intValue());
             preparedStatement.executeUpdate();
-            System.out.println("update params");
+
+            logger.log(Level.INFO,String.format("Updated id:%s params:%s ",id,params));
             return "SUCCESS";
         } catch (SQLException e) {
+
+            logger.log(Level.SEVERE,"SQL exception Message: "+e.getMessage()+" SQLState  "+e.getSQLState()+" Error code: "+e.getErrorCode());
             e.printStackTrace();
         }
         return "";
@@ -122,11 +166,17 @@ public class DbController {
 
             preparedStatement.executeUpdate();
 
+
+            logger.log(Level.INFO,"Added user to db "+victim.toString());
             return true;
 
         } catch (SQLException e) {
+
+            logger.log(Level.SEVERE,"SQL exception Message: "+e.getMessage()+" SQLState  "+e.getSQLState()+" Error code: "+e.getErrorCode());
             e.printStackTrace();
         } catch (ParseException e) {
+
+            logger.log(Level.SEVERE,"Parse exception Message: "+e.getMessage());
             e.printStackTrace();
         }
 
