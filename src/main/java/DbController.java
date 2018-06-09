@@ -1,34 +1,40 @@
 import com.google.gson.Gson;
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
-
 import java.sql.*;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Properties;
 
 public class DbController {
 
     private java.sql.Connection conn;
-    private Statement stmt = null;
     private PreparedStatement preparedStatement=null;
-    MysqlDataSource dataSource;
 
-    DbController()
-    {
-        dataSource=new MysqlDataSource();
-        dataSource.setUser(Keys.user);
-        dataSource.setPassword(Keys.password);
-        dataSource.setDatabaseName(Keys.databaseName);
-        dataSource.setServerName(Keys.name);
-
+    DbController() {
         try {
-            conn=dataSource.getConnection();
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.getCause();
+        }
+        String url = String.format("jdbc:mysql://%s/%s?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", Keys.name, Keys.databaseName);
+
+        // Set connection properties.
+        Properties properties = new Properties();
+        properties.setProperty("user", Keys.user);
+        properties.setProperty("password", Keys.password);
+        properties.setProperty("useSSL", "true");
+        properties.setProperty("verifyServerCertificate", "true");
+        properties.setProperty("requireSSL", "false");
+        properties.setProperty("autoReconnect","true");
+        try {
+            conn = DriverManager.getConnection(url, properties);
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 
 
