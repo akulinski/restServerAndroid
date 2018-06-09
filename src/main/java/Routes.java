@@ -3,17 +3,51 @@ import static spark.Spark.*;
 import com.google.gson.Gson;
 import spark.*;
 
+import java.io.IOException;
+import java.util.Properties;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+
+
+
+
 public class Routes {
     private DbController dbController;
+
+    private final Logger logger = Logger.getLogger(DbController.class.getName());
+    private FileHandler fileHandler=null;
+
     Routes(DbController db)
     {
+        setUpLogger();
         dbController=db;
 
     }
 
-    public Route testRoute =(Request request, Response response) ->
+    private void setUpLogger ( )
     {
-        return new Gson().toJson("SUCCESS:TRUE");
+        try
+        {
+            fileHandler = new FileHandler ( "routes.log" );
+            logger.addHandler ( fileHandler );
+
+            SimpleFormatter formatter = new SimpleFormatter ( );
+
+            fileHandler.setFormatter ( formatter );
+        }
+        catch ( IOException e )
+        {
+            e.printStackTrace ( );
+        }
+    }
+
+
+    public Route testRoute = (Request request, Response response) ->
+    {
+        logger.log (Level.INFO, "test by: " + request.ip () + " " + request.headers ());
+        return new Gson ().toJson ("SUCCESS:TRUE");
     };
 
     public Route addStalker=(Request req,Response res)->
@@ -24,6 +58,8 @@ public class Routes {
 
         System.out.println(stalker);
         dbController.addStalker(stalker);
+
+        logger.log (Level.INFO, "addStalker by: " + req.ip () + " " + req.headers ());
         return new Gson().toJson("SUCCESS");
     };
 
@@ -33,6 +69,7 @@ public class Routes {
         System.out.println("test");
         res.type("application/json");
 
+        logger.log (Level.INFO, "getStalker by: " + req.ip () + " " + req.headers ());
         return new Gson().toJson(dbController.getStalker(req.params(":name"),req.params(":password")));
     };
 
@@ -45,6 +82,7 @@ public class Routes {
         System.out.println("update params");
         dbController.updateParams(id,params);
 
+        logger.log (Level.INFO, "Updateby: " + req.ip () + " " + req.headers ()+" body: "+req.body ());
         return new Gson().toJson("SUCCESS");
     };
 
@@ -53,9 +91,15 @@ public class Routes {
         System.out.println("WORKING1");
         Victim victim=new Gson().fromJson(req.body(),Victim.class);
         if(dbController.addVictim(victim))
-            return new Gson().toJson("SUCCESS");
+        {
+            logger.log (Level.INFO, "addVictim by: " + req.ip () + " " + req.headers ());
+            return new Gson ().toJson ("SUCCESS");
+        }
         else
-            return new Gson().toJson("ERROR");
+        {
+            logger.log (Level.SEVERE, "addVivtim Failed by: "+ req.ip () + " " + req.headers ());
+            return new Gson ().toJson ("ERROR");
+        }
     };
 
 
@@ -67,9 +111,16 @@ public class Routes {
         Victim victim=dbController.getVictim(id.intValue(),name);
 
         if(victim!= null)
-            return new Gson().toJson(victim);
+        {
+            logger.log (Level.INFO, "getVictim by: " + req.ip () + " " + req.headers ());
+
+            return new Gson ().toJson (victim);
+        }
         else
-            return new Gson().toJson("ERROR");
+        {
+            logger.log (Level.SEVERE, "getVictim Failed by: "+ req.ip () + " " + req.headers ());
+            return new Gson ().toJson ("ERROR");
+        }
 
     };
 }
