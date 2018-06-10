@@ -50,9 +50,10 @@ public class Routes {
     {
         logger.log (Level.INFO, "test by: " + request.ip () + " " + request.headers ());
         System.out.println ("working test");
-        JsonObject jsonObject = (JsonObject) new JsonParser ().parse("SUCCESS:TRUE");
-        //return new Gson ().toJson ("SUCCESS:TRUE");
+        String jsonString = "{\"Success\":\"true\"}";
+        JsonObject jsonObject = (JsonObject) new JsonParser ().parse(jsonString);
         return jsonObject;
+
     };
 
     public Route addStalker=(Request req,Response res)->
