@@ -1,6 +1,8 @@
 import static spark.Spark.*;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import spark.*;
 
 import java.io.IOException;
@@ -48,7 +50,9 @@ public class Routes {
     {
         logger.log (Level.INFO, "test by: " + request.ip () + " " + request.headers ());
         System.out.println ("working test");
-        return new Gson ().toJson ("SUCCESS:TRUE");
+        JsonObject jsonObject = (JsonObject) new JsonParser ().parse("SUCCESS:TRUE");
+        //return new Gson ().toJson ("SUCCESS:TRUE");
+        return jsonObject;
     };
 
     public Route addStalker=(Request req,Response res)->
