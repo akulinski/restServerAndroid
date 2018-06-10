@@ -47,6 +47,7 @@ public class Routes {
     public Route testRoute = (Request request, Response response) ->
     {
         logger.log (Level.INFO, "test by: " + request.ip () + " " + request.headers ());
+        System.out.println ("working test");
         return new Gson ().toJson ("SUCCESS:TRUE");
     };
 
