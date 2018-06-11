@@ -51,8 +51,7 @@ public class Routes {
         logger.log (Level.INFO, "test by: " + request.ip () + " " + request.headers ());
         System.out.println ("working test");
         String jsonString = "{\"Success\":\"true\"}";
-        JsonObject jsonObject = (JsonObject) new JsonParser ().parse(jsonString);
-        return jsonObject;
+        return new Gson().toJson(jsonString);
 
     };
 
