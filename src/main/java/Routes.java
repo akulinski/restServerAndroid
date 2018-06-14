@@ -73,7 +73,6 @@ public class Routes {
 
         System.out.println("test");
         res.type("application/json");
-
         logger.log (Level.INFO, "getStalker by: " + req.ip () + " " + req.headers ());
         return new Gson().toJson(dbController.getStalker(req.params(":name"),req.params(":password")));
     };
@@ -86,7 +85,7 @@ public class Routes {
         String params=new Gson().fromJson(req.body(),String.class);
         System.out.println("update params");
         dbController.updateParams(id,params);
-
+        System.out.println ("Updateby: " + req.ip () + " " + req.headers ()+" body: "+req.body ());
         logger.log (Level.INFO, "Updateby: " + req.ip () + " " + req.headers ()+" body: "+req.body ());
         return new Gson().toJson("SUCCESS");
     };
