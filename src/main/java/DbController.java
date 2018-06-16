@@ -6,6 +6,8 @@ import java.sql.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Properties;
 import java.util.logging.FileHandler;
@@ -40,6 +42,10 @@ public class DbController {
         properties.setProperty("verifyServerCertificate", "true");
         properties.setProperty("requireSSL", "false");
         properties.setProperty("autoReconnect","true");
+        properties.setProperty ("testOnBorrow","true");
+        properties.setProperty ("validationQuery","SELECT 1");
+        properties.setProperty ("validationInterval","60000");
+
         try {
             conn = DriverManager.getConnection(url, properties);
             logger.log(Level.INFO,"Connected to DB");
@@ -71,7 +77,7 @@ public class DbController {
     {
         String query="INSERT INTO STALKER VALUES(?,?,?,?,?,?)";
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        String date="01-01-2018";
+        String date=LocalDateTime.now ().toString ();
         try {
             java.util.Date myDate = formatter.parse(date);
             java.sql.Date sqlDate = new java.sql.Date(myDate.getTime());

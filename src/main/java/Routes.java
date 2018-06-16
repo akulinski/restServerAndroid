@@ -38,6 +38,7 @@ public class Routes {
             SimpleFormatter formatter = new SimpleFormatter ( );
 
             fileHandler.setFormatter ( formatter );
+
         }
         catch ( IOException e )
         {
@@ -48,8 +49,8 @@ public class Routes {
 
     public Route testRoute = (Request request, Response response) ->
     {
-        logger.log (Level.INFO, "test by: " + request.ip () + " " + request.headers ());
-        System.out.println ("working test");
+      //  logger.log (Level.INFO, "test by: " + request.ip () + " " + request.headers ());
+      //  System.out.println ("working test");
         String jsonString = "{\"Success\":\"true\"}";
         return new Gson().toJson(jsonString);
 
@@ -65,6 +66,7 @@ public class Routes {
         dbController.addStalker(stalker);
 
         logger.log (Level.INFO, "addStalker by: " + req.ip () + " " + req.headers ());
+        System.out.println ("adding Stalker");
         return new Gson().toJson("SUCCESS");
     };
 
