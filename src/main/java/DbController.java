@@ -1,4 +1,4 @@
-import com.google.gson.Gson;
+import com.mysql.cj.jdbc.MysqlDataSource;
 
 import java.io.IOException;
 import java.sql.*;
@@ -7,9 +7,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Properties;
+
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,7 +15,7 @@ import java.util.logging.SimpleFormatter;
 
 
 public class DbController {
-
+    private MysqlDataSource dataSource;
     private java.sql.Connection conn;
     private PreparedStatement preparedStatement=null;
     private final Logger logger = Logger.getLogger(DbController.class.getName());
@@ -27,27 +25,15 @@ public class DbController {
 
         setUpLogger();
 
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.getCause();
-        }
-        String url = String.format("jdbc:mysql://%s/%s?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", Keys.name, Keys.databaseName);
+        dataSource = new MysqlDataSource ();
 
-        // Set connection properties.
-        Properties properties = new Properties();
-        properties.setProperty("user", Keys.user);
-        properties.setProperty("password", Keys.password);
-        properties.setProperty("useSSL", "true");
-        properties.setProperty("verifyServerCertificate", "true");
-        properties.setProperty("requireSSL", "false");
-        properties.setProperty("autoReconnect","true");
-        properties.setProperty ("testOnBorrow","true");
-        properties.setProperty ("validationQuery","SELECT 1");
-        properties.setProperty ("validationInterval","60000");
+        dataSource.setUser(Keys.user);
+        dataSource.setPassword(Keys.password);
+        dataSource.setServerName(Keys.name);
+        dataSource.setDatabaseName(Keys.databaseName);
 
         try {
-            conn = DriverManager.getConnection(url, properties);
+            conn = dataSource.getConnection ();
             logger.log(Level.INFO,"Connected to DB");
 
         } catch (SQLException e) {
