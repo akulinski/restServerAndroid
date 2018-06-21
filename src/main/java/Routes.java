@@ -3,6 +3,7 @@ import static spark.Spark.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import spark.*;
 
 import java.io.IOException;
@@ -47,13 +48,15 @@ public class Routes {
     }
 
 
+
     public Route testRoute = (Request request, Response response) ->
     {
       //  logger.log (Level.INFO, "test by: " + request.ip () + " " + request.headers ());
       //  System.out.println ("working test");
-        String jsonString = "{\"Success\":\"true\"}";
-        return new Gson().toJson(jsonString);
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty ("success","true");
 
+        return jsonObject;
     };
 
     public Route addStalker=(Request req,Response res)->
