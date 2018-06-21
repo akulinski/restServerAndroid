@@ -8,22 +8,40 @@
     <artifactId>restServerAnroid</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <settings>
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Maven Repository Switchboard</name>
+            <layout>default</layout>
+            <url>http://repo1.maven.org/maven2</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
-        <mirrors>
-            <mirror>
-                <id>UK</id>
-                <name>UK Central</name>
-                <url>http://uk.maven.org/maven2</url>
-                <mirrorOf>central</mirrorOf>
-            </mirror>
-        </mirrors>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <name>Maven Plugin Repository</name>
+            <url>http://repo1.maven.org/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
 
-    </settings>
+
     <build>
+
         <plugins>
 
             <plugin>
+
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
