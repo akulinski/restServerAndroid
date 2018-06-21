@@ -7,6 +7,19 @@
     <groupId>restServerAnroid</groupId>
     <artifactId>restServerAnroid</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <settings>
+
+        <mirrors>
+            <mirror>
+                <id>UK</id>
+                <name>UK Central</name>
+                <url>http://uk.maven.org/maven2</url>
+                <mirrorOf>central</mirrorOf>
+            </mirror>
+        </mirrors>
+
+    </settings>
     <build>
         <plugins>
 
