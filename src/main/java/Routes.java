@@ -67,7 +67,7 @@ public class Routes {
 
         logger.log (Level.INFO, "addStalker by: " + req.ip () + " " + req.headers ());
         System.out.println ("adding Stalker");
-        return new Gson().toJson("SUCCESS");
+        return new Gson().toJson("{\"Success\":\"true\"}");
     };
 
     public Route getStalker=(Request req,Response res)->
