@@ -84,12 +84,22 @@ public class Routes {
 
     public Route updateParams=(Request req,Response res)->
     {
-        Integer id=Integer.parseInt(req.params(":id"));
+
+        String nameStalker=req.params(":nameStalker");
+        String nameVictim=req.params(":nameVictim");
+
         System.out.println("update params");
 
-        String params=new Gson().fromJson(req.body(),String.class);
+        Cordinates cordinates=new Gson().fromJson(req.body(),Cordinates.class);
+
+        System.out.println(cordinates);
+
+        Cordinates params=new Gson().fromJson(req.body(),Cordinates.class);
+
         System.out.println("update params");
-        dbController.updateParams(id,params);
+
+        dbController.updateParams(params,nameStalker,nameVictim);
+
         System.out.println ("Updateby: " + req.ip () + " " + req.headers ()+" body: "+req.body ());
         logger.log (Level.INFO, "Updateby: " + req.ip () + " " + req.headers ()+" body: "+req.body ());
         return new Gson().toJson("SUCCESS");

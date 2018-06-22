@@ -116,18 +116,44 @@ public class DbController {
         return "";
     }
 
-    String updateParams(Integer id,String params)
+    String updateParams(Cordinates params,String nameSTALKER,String nameVictim)
     {
-        String query="UPDATE VICTIM SET cordinates=? WHERE STALKER_idSTALKER= ?";
+        String getid="SELECT idSTALKER FROM STALKER WHERE userName=?;";
+
+
+
+        String query="UPDATE VICTIM SET cordinatesx=?, cordinatesy=? WHERE STALKER_idSTALKER=? AND nameVICTIM=?;";
+        Integer idStalker = null;
+
+        try{
+
+            preparedStatement=conn.prepareStatement(getid);
+            preparedStatement.setString(1,nameSTALKER);
+            ResultSet set=preparedStatement.executeQuery();
+            while(set.next()){
+                idStalker=set.getInt(1);
+            }
+
+            System.out.println(idStalker);
+
+        }catch (SQLException e){
+            e.printStackTrace ();
+        }
 
         try
         {
+            System.out.println("try");
             preparedStatement=conn.prepareStatement(query);
-            preparedStatement.setString(1,params);
-            preparedStatement.setInt(2,id.intValue());
+            System.out.println(params);
+            System.out.println(Double.parseDouble(params.cordinatesx));
+            System.out.println(Double.parseDouble(params.cordinatesy));
+            preparedStatement.setDouble(1,Double.parseDouble(params.cordinatesx));
+            preparedStatement.setDouble(2,Double.parseDouble(params.cordinatesy));
+            preparedStatement.setInt(3,idStalker.intValue());
+            preparedStatement.setString(4,nameVictim);
             preparedStatement.executeUpdate();
 
-            logger.log(Level.INFO,String.format("Updated id:%s params:%s ",id,params));
+            logger.log(Level.INFO,String.format("Updated id:%s params:%s ",idStalker,params));
             return "SUCCESS";
         } catch (SQLException e) {
 
