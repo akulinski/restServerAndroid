@@ -18,7 +18,7 @@ public class Main {
 
 
         //----------------------------------------VICTIM ROUTES---------------------------------------------------------
-        post("/victim/updatesParams/:id",routes.updateParams); //update last cordinates of VIVTIM with id= :id
+        post("/victim/updatesParams/:nameStalker/:nameVictim",routes.updateParams); //update last cordinates of VIVTIM with id= :id
         post("/victim/addVictim",routes.addVictim); //adds VICTIM
         get("/victim/getVictim/:id/:name",routes.getVictim);
 
