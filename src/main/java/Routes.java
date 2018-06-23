@@ -79,7 +79,26 @@ public class Routes {
         System.out.println("test");
         res.type("application/json");
         logger.log (Level.INFO, "getStalker by: " + req.ip () + " " + req.headers ());
-        return new Gson().toJson(dbController.getStalker(req.params(":name"),req.params(":password")));
+
+        String ret="";
+
+        String reqCookie=req.cookie("sesionid");
+        if(reqCookie!=null && SingletonLoginController.getInstance().check(reqCookie)){
+            logger.log(Level.INFO, "Found cookie");
+            return new Gson().toJson("Login successful");
+        }
+        else {
+             ret = dbController.getStalker(req.params(":name"), req.params(":password"));
+            if (!ret.equals("")) {
+                String id = RandomStringGenerator.getInstance().getHashID(10);
+
+                SingletonLoginController.getInstance().addSession(req.params(":name"), id);
+                res.cookie("sesionid", id, 100000);
+
+                logger.log(Level.INFO, "generated Cookie id : " + id);
+            }
+        }
+        return new Gson().toJson(ret);
     };
 
     public Route updateParams=(Request req,Response res)->
