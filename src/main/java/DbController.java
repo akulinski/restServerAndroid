@@ -226,4 +226,39 @@ public class DbController {
         return new Victim();
     }
 
+
+    Cordinates getCords(String name){
+
+        String query="SELECT cordinatesx,cordinatesy FROM VICTIM WHERE nameVICTIM=?";
+
+        try {
+            preparedStatement=conn.prepareStatement(query);
+
+            preparedStatement.setString(1,name);
+
+
+            logger.log(Level.INFO,preparedStatement.toString());
+            ResultSet set=preparedStatement.executeQuery();
+
+
+
+            while (set.next())
+            {
+                String cordinatesx=set.getString(1);
+                String cordinatesy=set.getString(2);
+
+                logger.log(Level.INFO,cordinatesx+" "+cordinatesy);
+                Cordinates cordinates=new Cordinates(cordinatesx,cordinatesy);
+                logger.log(Level.INFO,"tomek to zyd "+cordinates.toString());
+                return cordinates;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        logger.log(Level.INFO,"returning null");
+        return null;
+    }
+
 }
