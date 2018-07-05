@@ -4,8 +4,8 @@ public class Cordinates {
     String cordinatesy;
 
     Cordinates(String cordinatesx,String cordinatesy){
-        cordinatesx=cordinatesx;
-        cordinatesy=cordinatesy;
+        this.cordinatesx=cordinatesx;
+        this.cordinatesy=cordinatesy;
     }
 
 
@@ -19,4 +19,8 @@ public class Cordinates {
         return cordinatesy;
     }
 
+    @Override
+    public String toString() {
+        return cordinatesx +" "+cordinatesy;
+    }
 }

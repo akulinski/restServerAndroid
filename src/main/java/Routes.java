@@ -7,6 +7,7 @@ import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import spark.*;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Properties;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -159,6 +160,16 @@ public class Routes {
             logger.log (Level.SEVERE, "getVictim Failed by: "+ req.ip () + " " + req.headers ());
             return new Gson ().toJson ("ERROR");
         }
+
+    };
+
+    public Route getCords=(Request req, Response res)->
+    {
+        String victimName=req.params(":name");
+        Cordinates cords=dbController.getCords(victimName);
+
+        logger.log(Level.INFO,cords.toString());
+        return new Gson().toJson(cords.toString());
 
     };
 }
