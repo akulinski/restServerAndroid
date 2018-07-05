@@ -226,6 +226,34 @@ public class DbController {
         return new Victim();
     }
 
+    String getLinks(String name){
+
+        String query="SELECT * FROM PHOTO WHERE StalkerName=?;";
+
+        try {
+            preparedStatement=conn.prepareStatement(query);
+            preparedStatement.setString(1,name);
+            logger.log(Level.INFO,preparedStatement.toString());
+            ResultSet set=preparedStatement.executeQuery();
+
+            String ret="";
+
+            while (set.next()){
+                ret+=set.getString(3);
+                ret+='\n';
+            }
+            logger.log(Level.INFO, ret);
+
+            return ret;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        logger.log(Level.INFO,"somting went wrong");
+        return  "";
+
+    }
 
     Cordinates getCords(String name){
 
@@ -259,6 +287,25 @@ public class DbController {
 
         logger.log(Level.INFO,"returning null");
         return null;
+    }
+
+    String addLink(String stalker,String link){
+
+        String query="INSERT INTO PHOTO VALUES(null,?,?);";
+
+        try {
+            preparedStatement=conn.prepareStatement(query);
+
+            preparedStatement.setString(1,stalker);
+            preparedStatement.setString(2,link);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        return "";
     }
 
 }

@@ -15,6 +15,8 @@ public class Main {
         //----------------------------------------STALKER ROUTES--------------------------------------------------------
         post("/stalker/addStalker",routes.addStalker); //adds stalker from body
         get("/stalker/getStalker/:name/:password",routes.getStalker);
+        get("stalker/links/:stalker",routes.getLinks);
+        get("stalker/links/:stalker/:link",routes.addLink);
 
 
         //----------------------------------------VICTIM ROUTES---------------------------------------------------------
@@ -22,6 +24,8 @@ public class Main {
         post("/victim/addVictim",routes.addVictim); //adds VICTIM
         get("/victim/getVictim/:id/:name",routes.getVictim);
         get("/victim/getCords/:name",routes.getCords);
+
+
 
     }
 
