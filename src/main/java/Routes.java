@@ -172,4 +172,25 @@ public class Routes {
         return new Gson().toJson(cords.toString());
 
     };
+
+    public Route getLinks=(Request req, Response res)->
+    {
+
+        String stalkerName=req.params(":stalker");
+
+        String links=dbController.getLinks(stalkerName);
+        return new Gson().toJson(links);
+    };
+
+
+
+    public Route addLink = (Request req, Response res)->
+    {
+        String stalkerName=req.params(":stalker");
+        String link=req.params(":link");
+
+        dbController.addLink(stalkerName,link);
+
+        return "";
+    };
 }
