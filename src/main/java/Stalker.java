@@ -7,6 +7,9 @@ public class Stalker extends User {
     String lastOnline;
 
     public String getPassword() {
+
+        if(password.length()<=2)
+            throw new IllegalStateException("week password");
         return password;
     }
 
