@@ -240,7 +240,7 @@ public class DbController {
 
             while (set.next()){
                 ret+=set.getString(3);
-                ret+='\n';
+                ret+="^";
             }
             logger.log(Level.INFO, ret);
 
