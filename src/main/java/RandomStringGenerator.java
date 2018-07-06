@@ -26,7 +26,7 @@ public class RandomStringGenerator {
         return generator;
     }
 
-    private String getString(int len){
+    public String getString(int len){
         StringBuilder stringBuilder=new StringBuilder();
 
         for(int i=0;i<len;i++){

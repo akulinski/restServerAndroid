@@ -12,8 +12,8 @@ public abstract class User {
 
     User(String name, int id)
     {
-        id=id;
-        name=name;
+        this.id=id;
+        this.name=name;
     }
 
     User()
