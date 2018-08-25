@@ -98,13 +98,7 @@
             <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>restServerAnroid</groupId>
-            <artifactId>restServerAnroid</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>test</scope>
-        </dependency>
-
+        
     </dependencies>
 
 </project>
