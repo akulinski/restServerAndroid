@@ -99,7 +99,10 @@ public class Routes {
                 logger.log(Level.INFO, "generated Cookie id : " + id);
             }
         }
-        return new Gson().toJson(ret);
+        StringBuilder ss = new StringBuilder();
+        ss.append("{").append("success:").append(ret).append("}");
+
+        return new Gson().toJson(ss.toString());
     };
 
     public Route updateParams=(Request req,Response res)->

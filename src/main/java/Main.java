@@ -7,6 +7,7 @@ public class Main {
 
     public static void main(String[] args)
     {
+        port(8080);
         DbController db=new DbController();
         Routes routes=new Routes(db);
 
