@@ -95,14 +95,13 @@ public class Routes {
 
                 SingletonLoginController.getInstance().addSession(req.params(":name"), id);
                 res.cookie("sesionid", id, 100000);
-
                 logger.log(Level.INFO, "generated Cookie id : " + id);
+                return new Gson().toJson("{\"Success\":\"true\"}");
+
             }
         }
-        StringBuilder ss = new StringBuilder();
-        ss.append("{").append("success:").append(ret).append("}");
 
-        return new Gson().toJson(ss.toString());
+        return new Gson().toJson("");
     };
 
     public Route updateParams=(Request req,Response res)->
