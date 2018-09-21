@@ -79,29 +79,35 @@ public class Routes {
 
         System.out.println("test");
         res.type("application/json");
-        logger.log (Level.INFO, "getStalker by: " + req.ip () + " " + req.headers ());
+        logger.log(Level.INFO, "getStalker by: " + req.ip() + " " + req.headers());
 
-        String ret="";
+        String ret = "";
 
-        String reqCookie=req.cookie("sesionid");
-        if(reqCookie!=null && SingletonLoginController.getInstance().check(reqCookie)){
+        String reqCookie = req.cookie("sesionid");
+        if (reqCookie != null && SingletonLoginController.getInstance().check(reqCookie)) {
             logger.log(Level.INFO, "Found cookie");
             return new Gson().toJson("Login successful");
-        }
-        else {
-             ret = dbController.getStalker(req.params(":name"), req.params(":password"));
+        } else {
+            ret = dbController.getStalker(req.params(":name"), req.params(":password"));
             if (!ret.equals("")) {
                 String id = RandomStringGenerator.getInstance().getHashID(10);
 
                 SingletonLoginController.getInstance().addSession(req.params(":name"), id);
                 res.cookie("sesionid", id, 100000);
                 logger.log(Level.INFO, "generated Cookie id : " + id);
-                return new Gson().toJson("{\"Success\":\"true\"}");
+
+                JsonObject jsonObject = new JsonObject();
+
+                jsonObject.addProperty("success", "true");
+                return jsonObject;
 
             }
         }
 
-        return new Gson().toJson("");
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("success", "false");
+
+        return jsonObject;
     };
 
     public Route updateParams=(Request req,Response res)->
