@@ -265,7 +265,7 @@ public class DbController {
             preparedStatement.setString(1,name);
 
 
-            logger.log(Level.INFO,preparedStatement.toString());
+            //logger.log(Level.INFO,preparedStatement.toString());
             ResultSet set=preparedStatement.executeQuery();
 
 
@@ -275,9 +275,9 @@ public class DbController {
                 String cordinatesx=set.getString(1);
                 String cordinatesy=set.getString(2);
 
-                logger.log(Level.INFO,cordinatesx+" "+cordinatesy);
+              //  logger.log(Level.INFO,cordinatesx+" "+cordinatesy);
                 Cordinates cordinates=new Cordinates(cordinatesx,cordinatesy);
-                logger.log(Level.INFO,"tomek to zyd "+cordinates.toString());
+               // logger.log(Level.INFO,"tomek to zyd "+cordinates.toString());
                 return cordinates;
             }
 

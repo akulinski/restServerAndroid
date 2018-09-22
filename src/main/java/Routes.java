@@ -77,7 +77,6 @@ public class Routes {
     public Route getStalker=(Request req,Response res)->
     {
 
-        System.out.println("test");
         res.type("application/json");
         logger.log(Level.INFO, "getStalker by: " + req.ip() + " " + req.headers());
 
