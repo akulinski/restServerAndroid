@@ -1,10 +1,8 @@
+package core.utils;
+
 import org.mindrot.jbcrypt.BCrypt;
 
-import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
-import java.sql.Time;
-import java.util.Random;
-import java.util.Timer;
 
 public class RandomStringGenerator {
 

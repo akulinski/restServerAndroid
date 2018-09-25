@@ -1,13 +1,14 @@
+package core.users;
+
 public class Cordinates {
 
-    String cordinatesx;
-    String cordinatesy;
+    public String cordinatesx;
+    public String cordinatesy;
 
-    Cordinates(String cordinatesx,String cordinatesy){
+    public Cordinates(String cordinatesx, String cordinatesy){
         this.cordinatesx=cordinatesx;
         this.cordinatesy=cordinatesy;
     }
-
 
     public String getX( )
     {
