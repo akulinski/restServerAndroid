@@ -2,36 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13fcff9e-66da-4ad6-ad76-1b8c7e4443f1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_3_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_javax_persistence_api_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_8_17.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_0_4_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_ejb3_persistence_1_0_2_GA.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_3_5_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_0_api_1_0_0_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_23_1_GA.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_0_5_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_2_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_2_spec_1_1_1_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Hibernate_5_3_6_5_3_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Routes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Routes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SingletonLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SingletonLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/Keys.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hibernateManagers/StalkerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernateManagers/StalkerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hibernateManagers/VictimManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernateManagers/VictimManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/users/Cordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernateManagers/users/Cordinates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/users/Photo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernateManagers/users/Photo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/users/Stalker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernateManagers/users/Stalker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernateManagers/users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/users/Victim.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernateManagers/users/Victim.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hibernateManagers/users/Cordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hibernateManagers/users/Cordinates.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -85,7 +58,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="5" />
-          <entry key="java" value="84" />
+          <entry key="java" value="87" />
           <entry key="log" value="1" />
           <entry key="xml" value="11" />
           <entry key="yml" value="1" />
@@ -94,7 +67,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="5" />
-          <entry key="JAVA" value="84" />
+          <entry key="JAVA" value="87" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="XML" value="11" />
           <entry key="YAML" value="1" />
@@ -102,16 +75,16 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="6380" />
-          <entry key="txt" value="100" />
+          <entry key="java" value="6511" />
+          <entry key="txt" value="184" />
           <entry key="xml" value="101" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6378" />
+          <entry key="JAVA" value="6509" />
           <entry key="JPA QL" value="2" />
-          <entry key="PLAIN_TEXT" value="100" />
+          <entry key="PLAIN_TEXT" value="184" />
           <entry key="XML" value="101" />
         </counts>
       </usages-collector>
@@ -124,11 +97,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hibernateManagers/VictimManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+            <state relative-caret-position="574">
+              <caret line="157" lean-forward="true" selection-start-line="157" selection-end-line="157" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Routes.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="54" column="53" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -137,13 +122,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hibernateManagers/users/Cordinates.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+            <state relative-caret-position="135">
+              <caret line="9" column="11" selection-end-line="39" />
               <folding>
-                <element signature="e#64#65#0" expanded="true" />
-                <element signature="e#108#109#0" expanded="true" />
+                <element signature="e#145#146#0" expanded="true" />
+                <element signature="e#191#192#0" expanded="true" />
+                <element signature="e#245#246#0" expanded="true" />
+                <element signature="e#291#292#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -153,7 +140,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/hibernateManagers/StalkerManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="114">
-              <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+              <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -206,11 +193,12 @@
         <option value="$PROJECT_DIR$/src/main/java/core/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/core/Routes.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Routes.java" />
         <option value="$PROJECT_DIR$/src/main/java/utils/LogerSingleton.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/hibernateManagers/StalkerManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/hibernateManagers/VictimManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hibernateManagers/StalkerManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Routes.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hibernateManagers/users/Cordinates.java" />
       </list>
     </option>
   </component>
@@ -315,7 +303,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537981226311" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537984269782" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../zadaniePraca" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -388,7 +376,7 @@
       <workItem from="1537899733052" duration="84000" />
       <workItem from="1537903370675" duration="824000" />
       <workItem from="1537979317293" duration="689000" />
-      <workItem from="1537980034773" duration="1187000" />
+      <workItem from="1537980034773" duration="3644000" />
     </task>
     <task id="LOCAL-00001" summary="fixed login">
       <created>1537559680159</created>
@@ -432,11 +420,18 @@
       <option name="project" value="LOCAL" />
       <updated>1537979647292</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="replaced Annotation configuration class with Configuration">
+      <created>1537981316977</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1537981316977</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50989000" />
+    <option name="totallyTimeSpent" value="53446000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -451,7 +446,7 @@
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49723756" visible="true" weight="0.22272727" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49723756" visible="true" weight="0.22272727" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -461,7 +456,7 @@
       <window_info id="Persistence" order="7" sideWeight="0.50276244" side_tool="true" weight="0.28863636" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952693" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35562807" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35562807" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -528,7 +523,8 @@
     <MESSAGE value="removed lgging info" />
     <MESSAGE value="implemneted hibernate" />
     <MESSAGE value="fixed maven not installing project" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed maven not installing project" />
+    <MESSAGE value="replaced Annotation configuration class with Configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="replaced Annotation configuration class with Configuration" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.travis.yml">
@@ -606,16 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Routes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/utils/LogerSingleton.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
@@ -664,13 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hibernateManagers/users/Cordinates.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hibernateManagers/users/Photo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -712,7 +691,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/hibernateManagers/StalkerManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
-          <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -721,8 +700,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hibernateManagers/VictimManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+        <state relative-caret-position="574">
+          <caret line="157" lean-forward="true" selection-start-line="157" selection-end-line="157" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hibernateManagers/users/Cordinates.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="11" selection-end-line="39" />
+          <folding>
+            <element signature="e#145#146#0" expanded="true" />
+            <element signature="e#191#192#0" expanded="true" />
+            <element signature="e#245#246#0" expanded="true" />
+            <element signature="e#291#292#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Routes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="54" column="53" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

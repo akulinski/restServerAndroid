@@ -1,27 +1,39 @@
 package hibernateManagers.users;
 
+import com.google.gson.annotations.Expose;
+
 public class Cordinates {
 
-    public String cordinatesx;
-    public String cordinatesy;
+    @Expose
+    private String cordinatesx;
 
-    public Cordinates(String cordinatesx, String cordinatesy){
-        this.cordinatesx=cordinatesx;
-        this.cordinatesy=cordinatesy;
+    @Expose
+    private String cordinatesy;
+
+    public void setCordinatesx(String cordinatesx) {
+        this.cordinatesx = cordinatesx;
     }
 
-    public String getX( )
-    {
+    public void setCordinatesy(String cordinatesy) {
+        this.cordinatesy = cordinatesy;
+    }
+
+
+    public Cordinates(String cordinatesx, String cordinatesy) {
+        this.cordinatesx = cordinatesx;
+        this.cordinatesy = cordinatesy;
+    }
+
+    public String getX() {
         return cordinatesx;
     }
 
-    public String getY( )
-    {
+    public String getY() {
         return cordinatesy;
     }
 
     @Override
     public String toString() {
-        return cordinatesx +" "+cordinatesy;
+        return cordinatesx + " " + cordinatesy;
     }
 }

@@ -8,11 +8,11 @@ import hibernateManagers.users.Cordinates;
 import hibernateManagers.users.Photo;
 import hibernateManagers.users.Stalker;
 import hibernateManagers.users.Victim;
-import utils.LogerSingleton;
-import utils.RandomStringGenerator;
 import spark.Request;
 import spark.Response;
 import spark.Route;
+import utils.LogerSingleton;
+import utils.RandomStringGenerator;
 
 import java.util.LinkedList;
 import java.util.logging.Level;
@@ -147,8 +147,8 @@ public class Routes {
             System.out.println(req.body());
             Cordinates cordinates = new Gson().fromJson(req.body(), Cordinates.class);
             System.out.println(cordinates);
-            victim.setCordinatesx(Double.parseDouble(cordinates.cordinatesx));
-            victim.setCordinatesy(Double.parseDouble(cordinates.cordinatesy));
+            victim.setCordinatesx(Double.parseDouble(cordinates.getX()));
+            victim.setCordinatesy(Double.parseDouble(cordinates.getY()));
             victimManager.updateCordinates(victim);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -223,7 +223,8 @@ public class Routes {
             Cordinates cords = victimManager.getCordinates(victimName);
 
             logger.log(Level.INFO, cords.toString());
-            return gson.toJson(cords.toString());
+            logger.log(Level.SEVERE,gson.toJson(cords));
+            return gson.toJsonTree(cords); //gson.toJson(cords);
         } catch (Exception ex) {
             ex.printStackTrace();
             return ex.getMessage();
