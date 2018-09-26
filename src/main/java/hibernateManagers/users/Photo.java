@@ -1,4 +1,4 @@
-package users;
+package hibernateManagers.users;
 
 
 import com.google.gson.annotations.Expose;

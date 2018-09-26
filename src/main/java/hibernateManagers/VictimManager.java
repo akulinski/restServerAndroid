@@ -1,15 +1,15 @@
 package hibernateManagers;
 
-import org.hibernate.query.Query;
-import users.Cordinates;
-import users.Photo;
-import users.Stalker;
-import users.Victim;
+import hibernateManagers.users.Cordinates;
+import hibernateManagers.users.Photo;
+import hibernateManagers.users.Stalker;
+import hibernateManagers.users.Victim;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.AnnotationConfiguration;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class VictimManager {
 
     public VictimManager() {
         try {
-            factory = new AnnotationConfiguration().configure("hibernate.cfg.xml").addPackage("users").addAnnotatedClass(Stalker.class).addAnnotatedClass(Victim.class).addAnnotatedClass(Photo.class).buildSessionFactory();
+            factory = new Configuration().configure("hibernate.cfg.xml").addPackage("hibernateManagers/users").addAnnotatedClass(Stalker.class).addAnnotatedClass(Victim.class).addAnnotatedClass(Photo.class).buildSessionFactory();
         } catch (Throwable ex) {
             System.err.println("Failed to create sessionFactory object." + ex);
             throw new ExceptionInInitializerError(ex);
@@ -56,7 +56,6 @@ public class VictimManager {
     }
 
     /**
-     *
      * @param id Id of victim
      * @return Victim with ID = id
      */
@@ -86,7 +85,6 @@ public class VictimManager {
     }
 
     /**
-     *
      * @param stalker Stalker object
      * @return list of Victim objects that are Stalked by stalker
      */
@@ -149,7 +147,6 @@ public class VictimManager {
     }
 
     /**
-     *
      * @param victim Victim object
      * @return List of Photo objects maped by victim
      */
@@ -167,7 +164,7 @@ public class VictimManager {
 
             query.setParameter("victim", victim);
             LinkedList<Photo> photos = new LinkedList<>();
-            query.list().forEach(element->{
+            query.list().forEach(element -> {
                 photos.add((Photo) element);
             });
 
@@ -183,7 +180,6 @@ public class VictimManager {
     }
 
     /**
-     *
      * @param photo Photo object that has to be saved in DB
      */
     public void updloadPhoto(Photo photo) {
@@ -205,7 +201,6 @@ public class VictimManager {
     }
 
     /**
-     *
      * @param name name of Victim object
      * @return Victim object with name = name
      */

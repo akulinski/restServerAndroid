@@ -3,7 +3,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Class used for storing sessions
- * of users
+ * of hibernateManagers.users
  */
 public class SingletonLoginController {
 
