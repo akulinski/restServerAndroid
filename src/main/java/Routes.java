@@ -1,23 +1,20 @@
-package core;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
-import core.hibernateManagers.StalkerManager;
-import core.hibernateManagers.VictimManager;
-import core.users.Cordinates;
-import core.users.Photo;
-import core.users.Stalker;
-import core.users.Victim;
-import core.utils.LogerSingleton;
-import core.utils.RandomStringGenerator;
+import hibernateManagers.StalkerManager;
+import hibernateManagers.VictimManager;
+import users.Cordinates;
+import users.Photo;
+import users.Stalker;
+import users.Victim;
+import utils.LogerSingleton;
+import utils.RandomStringGenerator;
 import spark.Request;
 import spark.Response;
 import spark.Route;
 
 import java.util.LinkedList;
-import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,12 +25,11 @@ import static spark.Spark.post;
 public class Routes {
 
     private final Logger logger = LogerSingleton.getInstance().getLogger();
-    private FileHandler fileHandler = null;
     private StalkerManager stalkerManager = null;
     private VictimManager victimManager = null;
     private Gson gson;
 
-    Routes() {
+    public Routes() {
 
         get("/test", testRoute);
 

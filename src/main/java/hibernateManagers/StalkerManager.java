@@ -1,8 +1,8 @@
-package core.hibernateManagers;
+package hibernateManagers;
 
-import core.users.Photo;
-import core.users.Stalker;
-import core.users.Victim;
+import users.Photo;
+import users.Stalker;
+import users.Victim;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -26,7 +26,7 @@ public class StalkerManager {
     public StalkerManager() {
 
         try {
-            factory = new AnnotationConfiguration().configure("hibernate.cfg.xml").addPackage("core.users").addAnnotatedClass(Stalker.class).addAnnotatedClass(Victim.class).addAnnotatedClass(Photo.class).buildSessionFactory();
+            factory = new AnnotationConfiguration().configure("hibernate.cfg.xml").addPackage("users").addAnnotatedClass(Stalker.class).addAnnotatedClass(Victim.class).addAnnotatedClass(Photo.class).buildSessionFactory();
         } catch (Throwable ex) {
             System.err.println("Failed to create sessionFactory object." + ex);
             throw new ExceptionInInitializerError(ex);

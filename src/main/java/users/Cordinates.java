@@ -1,4 +1,4 @@
-package core.users;
+package users;
 
 public class Cordinates {
 

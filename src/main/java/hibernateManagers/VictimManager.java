@@ -1,15 +1,15 @@
-package core.hibernateManagers;
+package hibernateManagers;
 
-import core.users.Cordinates;
-import core.users.Photo;
-import core.users.Stalker;
-import core.users.Victim;
+import org.hibernate.query.Query;
+import users.Cordinates;
+import users.Photo;
+import users.Stalker;
+import users.Victim;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.query.Query;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class VictimManager {
 
     public VictimManager() {
         try {
-            factory = new AnnotationConfiguration().configure("hibernate.cfg.xml").addPackage("core.users").addAnnotatedClass(Stalker.class).addAnnotatedClass(Victim.class).addAnnotatedClass(Photo.class).buildSessionFactory();
+            factory = new AnnotationConfiguration().configure("hibernate.cfg.xml").addPackage("users").addAnnotatedClass(Stalker.class).addAnnotatedClass(Victim.class).addAnnotatedClass(Photo.class).buildSessionFactory();
         } catch (Throwable ex) {
             System.err.println("Failed to create sessionFactory object." + ex);
             throw new ExceptionInInitializerError(ex);

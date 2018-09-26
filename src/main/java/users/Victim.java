@@ -1,4 +1,4 @@
-package core.users;
+package users;
 
 import com.google.gson.annotations.Expose;
 import org.hibernate.annotations.Fetch;

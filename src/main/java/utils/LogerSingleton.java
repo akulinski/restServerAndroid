@@ -1,4 +1,4 @@
-package core.utils;
+package utils;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;
@@ -18,8 +18,9 @@ public class LogerSingleton {
 
     private LogerSingleton() {
 
-        setUpLogger();
         logger = Logger.getLogger(LogerSingleton.class.getName());
+        setUpLogger();
+
     }
 
     public static synchronized LogerSingleton getInstance() {
